@@ -48,8 +48,8 @@ jobs:
         run: |
 
 
-          git clone https://${{ env.USER }}:${{ env.GH_TOKEN }}@github.com/${{ env.OWNER }}/${{ matrix.repositories }}.git
-          cd ${{ matrix.repositories }}
+          git clone https://${{ env.USER }}:${{ env.GH_TOKEN }}@github.com/${{ env.OWNER }}/${{ matrix.repositorie }}.git
+          cd ${{ matrix.repositorie }}
           # Obtener el nombre de la rama actual
           current_branch=$(git rev-parse --abbrev-ref HEAD)
 
