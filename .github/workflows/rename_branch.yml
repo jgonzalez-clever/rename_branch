@@ -5,7 +5,7 @@ on:
 
 jobs:
 
-  ret-repositories-to-rename-branch:
+  get-repositories-to-rename-branch:
       runs-on: ubuntu-latest
       outputs:
         REPOSITORIES: ${{ steps.set-matrix.outputs.REPO }}
@@ -30,12 +30,12 @@ jobs:
 
   rename-branch:
     runs-on: ubuntu-latest
-    needs: [Get-Repositories-To-Inject]
+    needs: [get-repositories-to-rename-branch]
     strategy:
         max-parallel: 1
         # SET MATRIX WITH repositories TO MIGRATE
         matrix: 
-            repositorie: ${{fromJson(needs.ret-repositories-to-rename-branch.outputs.REPOSITORIES)}}
+            repositorie: ${{fromJson(needs.get-repositories-to-rename-branch.outputs.REPOSITORIES)}}
 
     steps:
       - uses: actions/checkout@v3
@@ -43,8 +43,8 @@ jobs:
       - name: Add File to Another Repo
         env:
           GH_TOKEN: ${{ secrets.GH_PAT }}
-          OWNER: ${{ needs.Gret-repositories-to-rename-branch.outputs.OWNER }}
-          USER: ${{ needs.Get-Repositories-To-Inject.outputs.USER }}
+          OWNER: ${{ needs.get-repositories-to-rename-branch.outputs.OWNER }}
+          USER: ${{ needs.get-repositories-to-rename-branch.outputs.USER }}
         run: |
 
 
