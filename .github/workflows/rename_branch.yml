@@ -57,15 +57,9 @@ jobs:
           if [ "$current_branch" == "master" ]; then
               # Renombrar la rama local
               git branch -m master main
-              
-              # Empujar los cambios al repositorio remoto
-              git push -u origin main
-              
-              # Actualizar la rama predeterminada en el repositorio remoto (opcional)
-              # Consulta la documentación del servicio específico para obtener instrucciones
-              
-              # Actualizar las configuraciones locales de rastreo (opcional)
-              git branch -u origin/main
+              git fetch origin
+              git branch -u origin/master master
+              git remote set-head origin -a
               
               echo "La rama master ha sido renombrada a main."
           else
