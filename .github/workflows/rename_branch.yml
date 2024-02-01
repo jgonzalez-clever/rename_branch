@@ -40,7 +40,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Add File to Another Repo
+      - name: rename master
         env:
           GH_TOKEN: ${{ secrets.GH_PAT }}
           OWNER: ${{ needs.get-repositories-to-rename-branch.outputs.OWNER }}
