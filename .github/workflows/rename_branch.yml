@@ -58,9 +58,12 @@ jobs:
               # Renombrar la rama local
               git branch -m main
 
-              # Renombrar la rama remota
+              # Eliminar la rama remota "master"
+              git push origin --delete master
+          
+              # Empujar la rama local renombrada
               git push origin -u main
-              
+
               echo "La rama master ha sido renombrada a main."
           else
               echo "La rama actual no es master, no se realizaron cambios."
