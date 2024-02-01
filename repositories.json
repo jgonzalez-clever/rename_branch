@@ -1,0 +1,12 @@
+{
+    "owner" : "jgonzalez-clever",
+    "user" : "jgonzalez-clever",
+    "repositories": [
+      {
+        "repo_name": "PROJUPDATE-codeowners"
+      },
+      {
+        "repo_name": "repo1"
+      }
+    ]
+}
