@@ -56,10 +56,10 @@ jobs:
           # Verificar si la rama actual es "master"
           if [ "$current_branch" == "master" ]; then
               # Renombrar la rama local
-              git branch -m master main
-              git fetch origin
-              git branch -u origin/main main
-              git remote set-head origin -a
+              git branch -m main
+
+              # Renombrar la rama remota
+              git push origin -u main
               
               echo "La rama master ha sido renombrada a main."
           else
