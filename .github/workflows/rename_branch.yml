@@ -52,13 +52,13 @@ jobs:
           cd ${{ matrix.repositorie }}
           # Obtener el nombre de la rama actual
           current_branch=$(git rev-parse --abbrev-ref HEAD)
-
+          echo "la rama es $current_branch"
           # Verificar si la rama actual es "master"
           if [ "$current_branch" == "master" ]; then
               # Renombrar la rama local
               git branch -m master main
               git fetch origin
-              git branch -u origin/master master
+              git branch -u origin/main main
               git remote set-head origin -a
               
               echo "La rama master ha sido renombrada a main."
