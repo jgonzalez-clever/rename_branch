@@ -44,7 +44,6 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_PAT }}
           OWNER: ${{ needs.get-repositories-to-rename-branch.outputs.OWNER }}
-          USER: ${{ needs.get-repositories-to-rename-branch.outputs.USER }}
         run: |
 
           response=$(curl -s -L \
