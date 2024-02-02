@@ -73,7 +73,7 @@ jobs:
 
                 else
                   echo "La rama master ya fue renombrada anteiormente como $branch_name"  
-              
+                fi
           fi
       
 
