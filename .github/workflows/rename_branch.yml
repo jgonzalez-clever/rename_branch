@@ -59,7 +59,7 @@ jobs:
           else
               echo "La rama existe."
               branch_name=$(echo "$response" | jq -r '.name')
-                if [ "$(echo "$response" | jq -e '.name')" == "master" ]; then
+                if [ "$branch_name" == "master" ]; then
                 
                   curl -L \
                   -X POST \
